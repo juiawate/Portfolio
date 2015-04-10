@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Jui Awate's Portfolio</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font: 200 1em "Helvetica Neue";
+        }
+        html, body {
+            height: 100%;
+        }
+        .heading{
+            font-size: 3em;
+            font-style: italic;
+            background-color: white;
+            color: darkblue;
+            text-align: center;
+            padding: 0.5em;
+            text-shadow: 2px 2px;
+        }
+        .content{
+            height: 40em;
+            border: 1px solid dimgray;
+            margin: 1em;
+            padding-bottom: 1em;
+        }
+        .menu{
+            background-color: gray;
+            color: white;
+        }
+        .hiddenMenu{
+            display: none;
+        }
+        .navbar-toggle{
+
+            border: 1px solid white;
+            background-image: none;
+            background-color: transparent;
+        }
+        .dropdown{
+            font-size: 1.5em;
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown > li{
+            display: inline;
+            padding: 1em 1em;
+        }
+        .dropdown > li:hover{
+            color: black;
+            background-color: white;
+            cursor: pointer;
+        }
+        .active{
+            background-color: lightgray;
+            color: black;
+        }
+        .inactive{
+            background-color: gray;
+            color: white;
+        }
+        .home-data{
+            padding: 2em 1em;
+            font-size: 1.2em;
+        }
+        #myPic{
+            width: 13em;
+            height: 10em;
+            float: left;
+            margin-right: 1em;
+            overflow: auto;
+        }
+        .proj-data{
+            padding: 2em 1em;
+            font-size: 1.2em;
+            display: none;
+        }
+        .about-data{
+            padding: 2em 1em;
+            font-size: 1.2em;
+            display: none;
+        }
+        .contact-data{
+            padding: 2em 1em;
+            font-size: 1.2em;
+            display: none;
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var home = document.getElementById('home');
+            var projects = document.getElementById('projects');
+            var about = document.getElementById('about');
+            var contact = document.getElementById('contact');
+            var homeData = document.querySelector('.home-data');
+            var projData = document.querySelector('.proj-data');
+            var aboutData = document.querySelector('.about-data');
+            var contactData = document.querySelector('.contact-data');
+
+            home.addEventListener('click',function(){
+                homeData.style.display = 'block';
+                projData.style.display = 'none';
+                aboutData.style.display = 'none';
+                contactData.style.display = 'none';
+
+                removeClass();
+                home.classList.add('active');
+                projects.classList.add('inactive');
+                about.classList.add('inactive');
+                contact.classList.add('inactive');
+
+            });
+
+            projects.addEventListener('click',function(){
+                homeData.style.display = 'none';
+                projData.style.display = 'block';
+                aboutData.style.display = 'none';
+                contactData.style.display = 'none';
+
+                removeClass();
+                home.classList.add('inactive');
+                projects.classList.add('active');
+                about.classList.add('inactive');
+                contact.classList.add('inactive');
+            });
+
+            about.addEventListener('click',function(){
+                homeData.style.display = 'none';
+                projData.style.display = 'none';
+                aboutData.style.display = 'block';
+                contactData.style.display = 'none';
+
+                removeClass();
+                home.classList.add('inactive');
+                projects.classList.add('inactive');
+                about.classList.add('active');
+                contact.classList.add('inactive');
+            });
+
+            contact.addEventListener('click',function(){
+                homeData.style.display = 'none';
+                projData.style.display = 'none';
+                aboutData.style.display = 'none';
+                contactData.style.display = 'block';
+
+                removeClass();
+                home.classList.add('inactive');
+                projects.classList.add('inactive');
+                about.classList.add('inactive');
+                contact.classList.add('active');
+            });
+        });
+
+        function removeClass(){
+            var listItems = document.querySelectorAll('.dropdown > li');
+            for(var i = 0; i < listItems.length; i++){
+                listItems[i].classList.remove('active');
+                listItems[i].classList.remove('inactive');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div class="heading">
+            Jui Awate
+        </div>
+        <div class="content">
+            <div class="menu">
+                <ul class="row hiddenMenu">
+                    <li class="col-sm-12 col-xs-12">Menu</li>
+                </ul>
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="row dropdown nav nav-tabs">
+                    <li id="home" class="active col-xs-12 col-sm-2 col-md-2 col-lg-2">Home</li>
+                    <li id="projects" class="inactive col-xs-12 col-sm-2 col-md-2 col-lg-2">Projects</li>
+                    <li id="about" class="inactive col-xs-12 col-sm-2 col-md-2 col-lg-2">About me</li>
+                    <li id="contact" class="inactive col-xs-12 col-sm-2 col-md-2 col-lg-2">Contact</li>
+                </ul>
+                    </div>
+            </div>
+            <div>
+                <div class="home-data">
+                    <div>
+                        <img id="myPic" src="Jui.jpg" alt="Jui Awate">
+                        <p>Welcome to my homepage! My name is Jui Awate.</p>
+                        <p>To know more about me please visit 'About me' section.</p>
+                        <p>You can check the details about my professional experience in 'Projects' section.</p>
+                    </div>
+                </div>
+                <div class="proj-data">
+                    <p>I have done Bachelor's of engineering in Computer Science from Pune University, INDIA in May 2010.</p>
+                    <p>I was working in Persistent Systems Ltd.,India for 4 years.</p>
+                </div>
+                <div class="about-data">
+                    My resume::<br>
+                    <object data="Resume_Jui%20Awate.pdf" type="application/pdf" height="400" width="700">
+                       alt:  <a href="Resume_Jui%20Awate.pdf" target="_top">Resume</a>
+                    </object>
+
+                    <div id="resume"></div>
+                </div>
+                <div class="contact-data">
+                    <p>I am currently located in Sunnyvale, California.</p>
+                    <p>You can connect with me on <a href="https://www.linkedin.com/hp/?dnr=PrVGt1Yf5PE5ww1CPoAetmgy2XDIbw20faBA"target="_blank">LinkedIn</a>
+                     and <a href="https://www.facebook.com/jui.awate" target="_blank">Facebook</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
